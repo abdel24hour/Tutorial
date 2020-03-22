@@ -5,6 +5,7 @@ buffer_duration = 5000
 log_stream_name = {hostname}
 initial_position = end_of_file
 log_group_name = /var/log/messages
+
 [/var/log/cxswatch.log]
 datetime_format = %b %d %H:%M:%S
 file = /var/log/cxswatch.log
@@ -12,6 +13,7 @@ buffer_duration = 5000
 log_stream_name = {hostname}
 initial_position = end_of_file
 log_group_name = /var/log/cxswatch.log
+
 [/var/log/cron]
 datetime_format = %b %d %H:%M:%S
 file = /var/log/cron
@@ -19,6 +21,7 @@ file = /var/log/cron
 log_stream_name = {hostname}
 initial_position = end_of_file
 log_group_name = /var/log/cron
+
 [/var/log/awslogs-agent-setup.log]
 datetime_format = %b %d %H:%M:%S
 file = /var/log/awslogs-agent-setup.log
@@ -26,6 +29,7 @@ buffer_duration = 5000
 log_stream_name = {hostname}
 initial_position = end_of_file
 log_group_name = /var/log/awslogs-agent-setup.log
+
 [/var/log/apache2/error_log]
 datetime_format = %b %d %H:%M:%S
 file = /var/log/apache2/error_log
@@ -33,6 +37,7 @@ buffer_duration = 5000
 log_stream_name = {hostname}
 initial_position = end_of_file
 log_group_name = /var/log/apache2/error_log
+
 [/var/lib/mysql/aws.remezcla.com.err]
 datetime_format = %b %d %H:%M:%S
 file = /var/lib/mysql/aws.remezcla.com.err
@@ -40,6 +45,7 @@ buffer_duration = 5000
 log_stream_name = {hostname}
 initial_position = end_of_file
 log_group_name = /var/lib/mysql/aws.remezcla.com.err
+
 [/var/log/secure]
 datetime_format = %b %d %H:%M:%S
 file = /var/log/secure

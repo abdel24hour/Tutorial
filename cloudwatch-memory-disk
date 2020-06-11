@@ -1,0 +1,21 @@
+yum install -y perl-Switch perl-DateTime perl-Sys-Syslog perl-LWP-Protocol-https perl-Digest-SHA.x86_64
+
+curl https://aws-cloudwatch.s3.amazonaws.com/downloads/CloudWatchMonitoringScripts-1.2.2.zip -O
+
+unzip CloudWatchMonitoringScripts-1.2.2.zip
+# remove the zip
+rm CloudWatchMonitoringScripts-1.2.2.zip
+# move to the unzipped folder
+cd aws-scripts-mon
+cp awscreds.template awscreds.conf
+Next, add your AWS Access ID and secret key in this file and save it.
+
+
+
+Testing
+./mon-put-instance-data.pl --mem-util --verify --verbose
+
+Cron Job - please check the correct path
+crontab -e
+
+*/5 * * * * /root/cloudwatch_logs/aws-scripts-mon/mon-put-instance-data.pl --mem-used-incl-cache-buff --mem-util --disk-space-util --disk-path=/ --from-cron

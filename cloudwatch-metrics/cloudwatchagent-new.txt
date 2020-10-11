@@ -1,0 +1,30 @@
+# This is how you monitor CPU, Memory, Disk, Logs by using AWS CloudWatch new agent.
+
+# This tutorial for CentOS specifically
+
+yum install epel-release
+
+yum install https://s3.amazonaws.com/amazoncloudwatch-agent/amazon_linux/amd64/latest/amazon-cloudwatch-agent.rpm
+
+yum install collectd
+
+# To configure the agent and which data you want to collect
+
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
+
+# To run the agent using the config file that was generated from the wizard
+
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json -s
+
+# Note: If you get an error related to types.db, create an empty file
+
+mkdir /usr/share/collectd
+
+touch /usr/share/collectd/types.db
+
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -m ec2 -a status
+
+systemctl enable amazon-cloudwatch-agent
+
+# Once the Agent is started, it will publish CloudWatch Metrics as per configuration details in the configuration file. 
+# You can check the metrics in CloudWatch console under CWAgent Namespace.
